@@ -1,12 +1,85 @@
 body {
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
+    margin: 0;
+    padding: 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+circle {
+    border: 1px solid black;
+}
+
+#graph {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+}
+
+#title,
+#xlabel,
+#ylabel {
+    position: absolute;
+    width: max-content;
+    font-size: .8rem;
+}
+
+#title {
+    text-align: center;
+}
+
+#head {
+    font-size: 1.5rem;
+}
+
+#subhead {
+    font-size: 1rem;
+}
+
+#ylabel {
+    transform: rotate(-90deg);
+    z-index: 100;
 }
 
 svg {
-	border: 1px solid black;
-	border-radius: 1rem
+    margin-top: 5rem;
+}
+
+#tooltip {
+    position: absolute;
+    padding: 0 0.5rem;
+    font: 12px sans-serif;
+    background: rgba(140, 180, 241, 0.911);
+    border-radius: 10px;
+}
+
+p {
+    line-height: 0.2rem;
+    font-size: 0.5rem;
+}
+
+#graph {
+    position: relative;
+}
+
+.legend {
+    height: 0.5rem;
+    width: 0.7rem;
+    display: inline-block;
+    margin-right: 0.5rem;
+    border: 1px solid black;
+}
+
+#legend {
+    font-size: 0.5rem;
+    position: absolute;
+}
+
+#col1 {
+    background: rgb(101, 158, 243);
+}
+
+#col2 {
+    background: rgb(216, 81, 99);
 }
