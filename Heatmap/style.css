@@ -7,14 +7,13 @@ body {
     align-items: center;
 }
 
-circle {
-    border: 1px solid black;
-}
-
 #graph {
     position: relative;
     display: flex;
     justify-content: space-around;
+    border: 1px solid black;
+    top: 0;
+    left: 0;
 }
 
 #title,
@@ -29,14 +28,6 @@ circle {
     text-align: center;
 }
 
-#head {
-    font-size: 1.5rem;
-}
-
-#subhead {
-    font-size: 1rem;
-}
-
 #ylabel {
     transform: rotate(-90deg);
     z-index: 100;
@@ -46,25 +37,21 @@ svg {
     margin-top: 5rem;
 }
 
+#legend svg {
+    border: 1px solid black;
+}
+
 #tooltip {
     position: absolute;
-    padding: 0 0.5rem;
-    font: 12px sans-serif;
-    background: rgba(140, 180, 241, 0.911);
-    border-radius: 10px;
+    z-index: 100;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 0, 0, 0.856);
+    color: #fff;
 }
 
-p {
-    line-height: 0.2rem;
-    font-size: 0.5rem;
-}
-
-.legend {
-    height: 0.5rem;
-    width: 0.7rem;
-    display: inline-block;
-    margin-right: 0.5rem;
-    border: 1px solid black;
+#tooltip p {
+    font-size: .8rem;
+    margin-bottom: 0;
 }
 
 #legend {
@@ -72,10 +59,8 @@ p {
     position: absolute;
 }
 
-#col1 {
-    background: rgb(101, 158, 243);
-}
-
-#col2 {
-    background: rgb(216, 81, 99);
+.legend-col {
+    height: 1.5rem;
+    width: 1.5rem;
+    float: left;
 }
