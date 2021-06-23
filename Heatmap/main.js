@@ -57,6 +57,10 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
             .data(data.monthlyVariance)
             .enter()
             .append('rect')
+            .attr('class', 'cell')
+            .attr('data-month', d => d.month - 1)
+            .attr('data-year', d => d.year)
+            .attr('data-temp', d => data.baseTemperature + d.variance)
             .attr("x", function(d) {
                 return xScale(d.year)
             })
@@ -81,6 +85,7 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
             <p>${round(data.baseTemperature+d.variance)}&deg;C</p>
             <p>${d.variance>0?`+${round(d.variance)}`:`${round(d.variance)}`}&deg;C</p>`
             tooltip.html(html)
+            tooltip.attr('data-year', d.year);
         })
 
         rects.on('mouseleave', (e, d) => {
