@@ -19,8 +19,6 @@ const svg = d3.select('#graph')
     .attr('height', svgh)
     .attr('width', svgw)
 
-//legend.style('display', 'none')
-
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
 function round(x) {
@@ -31,8 +29,6 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
     .then(res => res.json())
     .then(data => {
         console.log(data)
-
-
 
         const years = Array.from(new Set(data.monthlyVariance.map(obj => obj.year)))
 
@@ -52,7 +48,8 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
             ])
             .range(colors)
 
-        //console.log(data.monthlyVariance.map(obj => yScale(monthNames[obj.month - 1])))
+
+
         const yAxis = d3.axisLeft(yScale)
         const xAxisDisplay = d3.axisBottom(xScaleDisplay)
 
@@ -77,8 +74,8 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
         rects.on('mouseenter', (e, d) => {
             tooltip.css({
                 'display': 'unset',
-                'top': `${e.clientY}px`,
-                'left': `${e.clientX}px`
+                'top': `${e.clientY+10}px`,
+                'left': `${e.clientX+10}px`
             })
             var html = `<p>${d.year} - ${monthNames[d.month]}</p>
             <p>${round(data.baseTemperature+d.variance)}&deg;C</p>
@@ -100,7 +97,6 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
             .attr('id', 'y-axis')
             .call(yAxis)
 
-        //console.log($('#x-axis').clientRect())
         const xaxis = document.querySelector('#x-axis').getBoundingClientRect()
 
         xlabel.css({
@@ -108,5 +104,6 @@ fetch('https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/maste
             'left': `${xaxis.width/2}px`
         })
 
-
+        var xticks = Array.from(document.querySelectorAll('#x-axis g text'))
+        xticks.map((elem, idx) => elem.innerHTML = elem.innerHTML.split(',').join(''))
     })

@@ -26,6 +26,7 @@ body {
 
 #title {
     text-align: center;
+    margin-top: 1rem;
 }
 
 #ylabel {
@@ -34,11 +35,7 @@ body {
 }
 
 svg {
-    margin-top: 5rem;
-}
-
-#legend svg {
-    border: 1px solid black;
+    margin-top: 3rem;
 }
 
 #tooltip {
@@ -54,13 +51,10 @@ svg {
     margin-bottom: 0;
 }
 
-#legend {
-    font-size: 0.5rem;
-    position: absolute;
+#head {
+    font-size: 1.5rem;
 }
 
-.legend-col {
-    height: 1.5rem;
-    width: 1.5rem;
-    float: left;
+#subhead {
+    font-size: 1rem;
 }
